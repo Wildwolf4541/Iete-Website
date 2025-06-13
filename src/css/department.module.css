@@ -1,0 +1,37 @@
+/* Event.css */
+.eventTitle {
+    color: #1f2328;
+    font-size: 500px;
+    font-family: "Alatsi", sans-serif;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: rgb(209, 179, 225);
+  }
+  
+  /* src/css/event.module.css */
+  .customH3 {
+    color: #ca98f8; /* text-purple-300 */
+    font-size: 230px; /* text-[60px] */
+    font-weight: 600; /* font-semibold */
+    position: absolute;
+    bottom: 50px; /* lg:bottom-[50px] */
+    /* text-stroke */
+  }
+  
+  @media only screen and (max-width: 1585px) {
+    .eventTitle {
+      font-size: 350px;
+    }
+    .customH3 {
+      font-size: 150px;
+    }
+  }
+  @media only screen and (max-width: 1087px) {
+    .eventTitle {
+      font-size: 100px;
+      -webkit-text-stroke-width: 2px;
+    }
+    .customH3 {
+      font-size: 70px;
+      bottom: 0px;
+    }
+  }
