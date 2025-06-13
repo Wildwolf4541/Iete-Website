@@ -107,9 +107,6 @@ const ContentSection = ({ tagline, title, content }) => {
       <p className="mt-7 text-[17px] text-white max-w-[100%] md:text-3xl max-md:max-w-full">
         {content}
       </p>
-      <button className="mt-7 max-w-full italic w-[127px] max-md:pr-5 text-left">
-        read more
-      </button>
     </div>
   )
 }

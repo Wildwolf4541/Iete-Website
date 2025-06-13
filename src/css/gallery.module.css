@@ -1,0 +1,190 @@
+.galleryContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  overflow: hidden;
+  background-image: url('../assets/bggallery.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.galleryBackgroundText {
+  background: linear-gradient(to right, #3c39bc, #060607);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 300px;
+  opacity: 30%;
+  font-family: 'Alatsi', sans-serif;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.galleryForegroundText {
+  font-size: 150px;
+  background: linear-gradient(
+    90deg,
+    rgb(126, 100, 229) 0%,
+    rgb(255 255 255) 100%,
+    rgba(255, 255, 255, 1) 93%,
+    rgb(0, 0, 0) 68%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: absolute;
+  top: 260px;
+  line-height: 1;
+
+  background-color: white;
+}
+
+.eventsContainer {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  z-index: 1;
+}
+
+.eventSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.eventHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.eventTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.eventDescription {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.viewAllLink {
+  color: #0070f3;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.viewAllLink:hover {
+  text-decoration: underline;
+}
+
+.eventGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  place-items: center;
+}
+
+.eventCard {
+  width: 100%;
+  max-width: 350px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  border: 1px solid #eaeaea;
+}
+
+.eventCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardContent {
+  padding: 0;
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.eventImage {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.eventCard:hover .eventImage {
+  transform: scale(1.05);
+}
+
+.cardFooter {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #eaeaea;
+}
+
+.photoCaption {
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .eventGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eventGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .galleryBackgroundText {
+    font-size: 100px;
+    -webkit-text-stroke-width: 3px;
+  }
+  .galleryForegroundText {
+    font-size: 80px;
+    top: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .galleryBackgroundText {
+    font-size: 200px;
+    -webkit-text-stroke-width: 4px;
+  }
+  .galleryForegroundText {
+    font-size: 120px;
+    top: 220px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .galleryBackgroundText {
+    font-size: 50px;
+    -webkit-text-stroke-width: 2px;
+  }
+  .galleryForegroundText {
+    font-size: 40px;
+    top: 70px;
+  }
+  .eventsContainer {
+    margin-top: 50px;
+  }
+}

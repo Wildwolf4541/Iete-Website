@@ -1,6 +1,7 @@
 import React from 'react'
 import { Atom } from 'lucide-react'
 import styles from '../css/department.module.css'
+import Heading from '../components/Heading'
 
 const departments = [
   {
@@ -60,37 +61,33 @@ const projects = [
 
 const DepartmentsSection = () => {
   return (
-    <div className="w-screen bg-black text-white">
-      <section className="w-screen min-h-screen bg-[url('/src/assets/landingBG1.png')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-4">
-        <div className="mb-8 text-center mt-10 relative w-full">
-          <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold text-white/10">
-            DEPARTMENTS
-          </h1>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white/90 pt-2 absolute top-5 left-1/2 -translate-x-1/2">
-            DEPARTMENTS
-          </h2>
+    <div className="w-screen bg-black text-white flex justify-center items-center flex-col">
+      <section className="w-screen min-h-screen bg-[url('/src/assets/landingBG1.png')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-4 relative ">
+        <div className="relative mb-10 flex justify-center items-center">
+          <Heading text="DEPARTMENT" />
         </div>
 
-        <div className="grid grid-cols-3 grid-rows-2 gap-x-5 gap-y-5 w-full max-w-7xl mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 w-full max-w-7xl mb-16">
           {departments.map((dept, index) => {
             let gridPosition = ''
 
             // Manually define the grid area equivalent
             switch (index) {
               case 0: // div1
-                gridPosition = 'row-start-1 col-start-1'
+                gridPosition = 'lg:row-start-1 lg:col-start-1'
                 break
               case 1: // div2 (spans 2 columns)
-                gridPosition = 'row-start-1 col-start-2 col-span-2'
+                gridPosition =
+                  'lg:row-start-1 lg:col-start-2 lg:col-span-2 md:col-span-2'
                 break
               case 2: // div3
-                gridPosition = 'row-start-2 col-start-1'
+                gridPosition = 'lg:row-start-2 lg:col-start-1'
                 break
               case 3: // div4
-                gridPosition = 'row-start-2 col-start-2'
+                gridPosition = 'lg:row-start-2 lg:col-start-2'
                 break
               case 4: // div5
-                gridPosition = 'row-start-2 col-start-3'
+                gridPosition = 'lg:row-start-2 lg:col-start-3'
                 break
               default:
                 break
@@ -99,7 +96,7 @@ const DepartmentsSection = () => {
             return (
               <div
                 key={dept.title}
-                className={`${gridPosition} ${dept.className} p-6  shadow-lg transform transition-transform hover:scale-105 relative overflow-hidden min-h-[200px] flex flex-col justify-between bg-glassyBg rounded-2xl shadow-glassy backdrop-blur-custom border border-glassyBorder`}
+                className={`${gridPosition} ${dept.className} p-6 shadow-lg transform transition-transform hover:scale-105 relative overflow-hidden min-h-[200px] flex flex-col justify-between bg-glassyBg rounded-2xl shadow-glassy backdrop-blur-custom border border-glassyBorder`}
               >
                 <div className={styles.glassy}>
                   <h3 className="text-xl font-bold mb-3">{dept.title}</h3>
@@ -114,18 +111,11 @@ const DepartmentsSection = () => {
         </div>
       </section>
 
-      <div className="relative mb-24 px-4">
-        <div className="mb-8 text-center mt-10 relative">
-          <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold text-white/10">
-            PROJECTS
-          </h1>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white/90 pt-2 absolute top-5 left-1/2 -translate-x-1/2">
-            PROJECTS
-          </h2>
-        </div>
+      <div className="relative mb-24 px-4 bg-black flex justify-center items-center">
+        <Heading text="PROJECTS" />
       </div>
 
-      <div className="space-y-32 text-center px-4 mb-20">
+      <div className="space-y-32 text-center px-4 mb-20 bg-black">
         {projects.map((project, index) => (
           <div key={index} className="space-y-8">
             <h3 className="text-3xl md:text-4xl font-bold text-purple-400 px-4 md:pl-14 py-12">
