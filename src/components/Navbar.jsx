@@ -1,13 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/iete_logo.png";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../assets/iete_logo.png'
 
 function Navbar() {
   return (
     <header className="shadow sticky top-0 z-50">
       <nav className="bg-black p-1" style={{ height: 100 }}>
         <div className="grid gap-1 sm:grid-cols-12">
-
           {/* Left Side Navigation Links */}
           <div className="h-20 sm:col-span-4 sm:col-start-2 hidden sm:flex justify-around items-center">
             <Link
@@ -61,11 +60,10 @@ function Navbar() {
               Gallery
             </Link>
           </div>
-
         </div>
       </nav>
     </header>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
