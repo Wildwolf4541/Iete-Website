@@ -23,16 +23,10 @@ function Navbar() {
               Events
             </Link>
             <Link
-              to="/project"
+              to="/department"
               className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 hover:text-purple-700"
             >
-              Projects
-            </Link>
-            <Link
-              to="/about"
-              className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 hover:text-purple-700"
-            >
-              About
+              Departments
             </Link>
           </div>
 
@@ -60,12 +54,6 @@ function Navbar() {
 
           {/* Right Side Navigation Links - Desktop */}
           <div className="h-20 sm:col-span-4 hidden sm:flex justify-around items-center">
-            <Link
-              to="/department"
-              className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 hover:text-purple-700"
-            >
-              Departments
-            </Link>
             <Link
               to="/team"
               className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 hover:text-purple-700"
