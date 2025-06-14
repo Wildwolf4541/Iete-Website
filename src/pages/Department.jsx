@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Atom } from 'lucide-react'
 import styles from '../css/department.module.css'
 import Heading from '../components/Heading'
+import e1 from '../assets/e1.jpeg'
+import e2 from '../assets/e2.jpeg'
+import e3 from '../assets/e3.jpeg'
+import e4 from '../assets/e4.jpeg'
+import e5 from '../assets/e5.jpeg'
+import landingBG1 from '../assets/landingBG1.png'
 
 const departments = [
   {
     title: 'ELECTRONICS',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, transforming communication, work, and social interactions.',
+      'Wiring the future, one circuit at a time. Enter a realm where code meets current, and ideas become intelligent machines.',
     icon: null,
     className: ' opacity-150 bg-[#5b2eb6] rounded-[40px] border border-white',
   },
   {
     title: 'WEB DEVELOPMENT',
+
     description:
       'An electronics-based society is one where technology profoundly influences daily life, transforming communication, work, and social interactions.',
     icon: <Atom className="w-16 h-16 text-white/70" />,
@@ -38,7 +45,6 @@ const departments = [
     title: 'AI/ML',
     description:
       'Profoundly influences daily life, transforming communication, work, and social interactions.',
-
     className: 'bg-gradient-to-br from-gray-800 to-gray-900',
   },
 ]
@@ -46,9 +52,9 @@ const departments = [
 const projects = [
   {
     department: 'ELECTRONICS DEPARTMENT',
-    title: 'Abcd project circuit',
+    title: 'Path Finder Buggy',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, transforming communication, work, and social interactions. In this society, constamce convenience, with homes and cities utilizing devices that can be controlled remotely. Automation plays a significant role, streamlining tasks in various sectors, from manufacturing to household chores, thus increasing productivity. The rise of e-commerce has changed traditional retail, making shopping more accessible than ever. Education has been',
+      'From the fast-paced thrill of RoboSoccer to the smart navigation of Pathfinder bots, our projects blend creativity, code, and cutting-edge tech. These aren’t just robots — they’re a glimpse into the future we’re building.',
   },
   {
     department: 'WEB DEVELOPMENT DEPARTMENT',
@@ -60,9 +66,22 @@ const projects = [
 ]
 
 const DepartmentsSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const images = [e1, e2, e3, e4, e5]
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    )
+  }
+
   return (
     <div className="w-screen bg-black text-white flex justify-center items-center flex-col">
-      <section className="w-screen min-h-screen bg-[url('/src/assets/landingBG1.png')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-4 relative ">
+      <section className="w-screen min-h-screen bg-[url('${landingBG1}')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-4 relative ">
         <div className="relative mb-10 flex justify-center items-center">
           <Heading text="DEPARTMENT" />
         </div>
@@ -71,22 +90,21 @@ const DepartmentsSection = () => {
           {departments.map((dept, index) => {
             let gridPosition = ''
 
-            // Manually define the grid area equivalent
             switch (index) {
-              case 0: // div1
+              case 0:
                 gridPosition = 'lg:row-start-1 lg:col-start-1'
                 break
-              case 1: // div2 (spans 2 columns)
+              case 1:
                 gridPosition =
                   'lg:row-start-1 lg:col-start-2 lg:col-span-2 md:col-span-2'
                 break
-              case 2: // div3
+              case 2:
                 gridPosition = 'lg:row-start-2 lg:col-start-1'
                 break
-              case 3: // div4
+              case 3:
                 gridPosition = 'lg:row-start-2 lg:col-start-2'
                 break
-              case 4: // div5
+              case 4:
                 gridPosition = 'lg:row-start-2 lg:col-start-3'
                 break
               default:
@@ -125,15 +143,24 @@ const DepartmentsSection = () => {
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-56 px-4 lg:pl-24">
               {index % 2 === 0 ? (
                 <>
-                  <div className="w-64 h-64 md:w-80 md:h-80 grid grid-cols-3 gap-2 bg-black flex-shrink-0">
-                    {[...Array(9)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`w-full h-full ${
-                          i % 2 === 0 ? 'bg-gray-200' : ''
-                        }`}
-                      ></div>
-                    ))}
+                  <div className="relative w-80 h-64 md:w-96 md:h-80 lg:w-[500px] lg:h-[400px] bg-black flex-shrink-0">
+                    <img
+                      src={images[currentImageIndex]}
+                      alt={`Image ${currentImageIndex + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+                    >
+                      ←
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+                    >
+                      →
+                    </button>
                   </div>
 
                   <div className="max-w-xl">
