@@ -3,7 +3,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 300px;
+  font-size: 250px;
   opacity: 30%;
   font-family: 'Alatsi', sans-serif;
   -webkit-text-stroke-width: 5px;
@@ -23,7 +23,7 @@
   background-clip: text;
   color: transparent;
   position: absolute;
-  top: 260px;
+  top: 170px;
   line-height: 1;
 
   background-color: white;
@@ -63,4 +63,20 @@
   .eventsContainer {
     margin-top: 50px;
   }
+}
+
+.special {
+  font-size: 150px;
+  background: linear-gradient(
+    90deg,
+    rgb(126, 100, 229) 0%,
+    rgb(255 255 255) 100%,
+    rgba(255, 255, 255, 1) 93%,
+    rgb(0, 0, 0) 68%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  background-color: white;
 }

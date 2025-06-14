@@ -1,4 +1,4 @@
-.h1 {
+.he {
   font-size: 150px;
   background: linear-gradient(
     90deg,
@@ -16,8 +16,23 @@
   width: 340px;
 }
 
-@media (max-screen: 500px) {
-  .h1 {
-    font-size: 30px;
+@media screen and (max-width: 500px) {
+  .he {
+    font-size: 100px;
   }
+}
+.special {
+  font-size: 50px;
+  background: linear-gradient(
+    90deg,
+    rgb(126, 100, 229) 0%,
+    rgb(255 255 255) 100%,
+    rgba(255, 255, 255, 1) 93%,
+    rgb(0, 0, 0) 68%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  background-color: white;
 }
