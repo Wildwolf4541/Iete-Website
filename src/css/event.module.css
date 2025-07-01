@@ -1,6 +1,6 @@
 /* Event.css */
 .eventTitle {
-  color: #1f2328;
+  color: transparent;
   font-size: 500px;
   font-family: 'Alatsi', sans-serif;
   -webkit-text-stroke-width: 5px;
@@ -13,7 +13,7 @@
   font-size: 230px; /* text-[60px] */
   font-weight: 600; /* font-semibold */
   position: absolute;
-  bottom: 50px; /* lg:bottom-[50px] */
+  bottom: 90px; /* lg:bottom-[50px] */
   /* text-stroke */
 }
 
@@ -32,7 +32,7 @@
   }
   .customH3 {
     font-size: 70px;
-    bottom: 0px;
+    bottom: 80px;
   }
 }
 

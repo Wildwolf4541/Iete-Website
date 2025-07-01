@@ -1,34 +1,119 @@
-import React from "react";
+import React from 'react'
 
 function Team() {
   const executiveBoard = [
-    { id: 1, name: "Arshit Thakur", position: "GENERAL SECRETARY", image: "../ebpics/arshit.jpg" },
-    { id: 2, name: "Bhumika Bandyopadhyay", position: "GENERAL SECRETARY", image: "../ebpics/bhumika.jpg" },
-    { id: 3, name: "Harkirat Singh", position: "JOINT SECRETARY", image: "../ebpics/harkirat.jpg" },
-    { id: 4, name: "Simran", position: "JOINT SECRETARY", image: "../ebpics/simran.png" },
-    { id: 5, name: "Maurya Kandhari", position: "JOINT SECRETARY", image: "../ebpics/maurya.jpg" },
-    { id: 6, name: "Riddhima Aggarwal", position: "FINANCE SECRETARY", image: "../ebpics/riddhima.JPG" },
-    { id: 7, name: "Abheet Singh", position: "FINANCE SECRETARY", image: "../ebpics/abheet.jpg" },
-    { id: 8, name: "Akhil Gupta", position: "WEB DEV LEAD", image: "../ebpics/akhil.jpg" },
-    { id: 9, name: "Priyanshu Patel", position: "WEB DEV LEAD", image: "../ebpics/priyanshu.jpg" },
-    { id: 10, name: "Tanisha Lal", position: "DESIGN AND MEDIA HEAD", image: "../ebpics/tanisha.jpg" },
-    { id: 11, name: "Aditi Sikarwar", position: "DESIGN AND MEDIA HEAD", image: "../ebpics/aditi.jpg" },
-    { id: 12, name: "Vandan Arora", position: "AI /ML LEAD", image: "../ebpics/vandan.jpg" },
-    { id: 13, name: "Jasmeet Kaur", position: "AI /ML LEAD", image: "../ebpics/jasmeet.jpg" },
-    { id: 14, name: "Gautam Narang", position: "ELECTRONICS HEAD", image: "../ebpics/gautam.jpg" },
-    { id: 15, name: "Harneet Singh", position: "ELECTRONICS HEAD", image: "../ebpics/harneet.jpg" },
-    { id: 16, name: "Aryan Batra", position: "MARKETING AND PR HEAD", image: "../ebpics/aryan.jpg" },
-    { id: 17, name: "Anjum Garg", position: "MARKETING AND PR HEAD", image: "../ebpics/anjum.jpg" },
-  ];
+    {
+      id: 1,
+      name: 'Arshit Thakur',
+      position: 'GENERAL SECRETARY',
+      image: '../ebpics/arshit.jpg',
+    },
+    {
+      id: 2,
+      name: 'Bhumika Bandyopadhyay',
+      position: 'GENERAL SECRETARY',
+      image: '../ebpics/bhumika.jpg',
+    },
+    {
+      id: 3,
+      name: 'Harkirat Singh',
+      position: 'JOINT SECRETARY',
+      image: '../ebpics/harkirat.jpg',
+    },
+    {
+      id: 4,
+      name: 'Simran',
+      position: 'JOINT SECRETARY',
+      image: '../ebpics/simran.png',
+    },
+    {
+      id: 5,
+      name: 'Maurya Kandhari',
+      position: 'JOINT SECRETARY',
+      image: '../ebpics/maurya.jpg',
+    },
+    {
+      id: 6,
+      name: 'Riddhima Aggarwal',
+      position: 'FINANCE SECRETARY',
+      image: '../ebpics/riddhima.JPG',
+    },
+    {
+      id: 7,
+      name: 'Abheet Singh',
+      position: 'FINANCE SECRETARY',
+      image: '../ebpics/abheet.jpg',
+    },
+    {
+      id: 8,
+      name: 'Akhil Gupta',
+      position: 'WEB DEV LEAD',
+      image: '../ebpics/akhil.jpg',
+    },
+    {
+      id: 9,
+      name: 'Priyanshu Patel',
+      position: 'WEB DEV LEAD',
+      image: '../ebpics/priyanshu.jpg',
+    },
+    {
+      id: 10,
+      name: 'Tanisha Lal',
+      position: 'DESIGN AND MEDIA HEAD',
+      image: '../ebpics/tanisha.jpg',
+    },
+    {
+      id: 11,
+      name: 'Aditi Sikarwar',
+      position: 'DESIGN AND MEDIA HEAD',
+      image: '../ebpics/aditi.jpg',
+    },
+    {
+      id: 12,
+      name: 'Vandan Arora',
+      position: 'AI /ML LEAD',
+      image: '../ebpics/vandan.jpeg',
+    },
+    {
+      id: 13,
+      name: 'Jasmeet Kaur',
+      position: 'AI /ML LEAD',
+      image: '../ebpics/jasmeet.jpg',
+    },
+    {
+      id: 14,
+      name: 'Gautam Narang',
+      position: 'ELECTRONICS HEAD',
+      image: '../ebpics/gautam.jpg',
+    },
+    {
+      id: 15,
+      name: 'Harneet Singh',
+      position: 'ELECTRONICS HEAD',
+      image: '../ebpics/harneet.jpg',
+    },
+    {
+      id: 16,
+      name: 'Aryan Batra',
+      position: 'MARKETING AND PR HEAD',
+      image: '../ebpics/aryan.jpg',
+    },
+    {
+      id: 17,
+      name: 'Anjum Garg',
+      position: 'MARKETING AND PR HEAD',
+      image: '../ebpics/anjum.jpg',
+    },
+  ]
 
-  const layout = [2, 3, 2, 2, 2, 2, 2, 2];
+  const layout = [2, 3, 2, 2, 2, 2, 2, 2]
 
-  const groupedMembers = [];
-  let index = 0;
+  const groupedMembers = []
+  let index = 0
   layout.forEach((count) => {
-    groupedMembers.push(executiveBoard.slice(index, index + count));
-    index += count;
-  });
+    groupedMembers.push(executiveBoard.slice(index, index + count))
+    index += count
+  })
 
   const renderGroup = (group, rowIndex) => (
     <div
@@ -49,14 +134,18 @@ function Team() {
           </div>
           <div className="px-6 py-4 flex-grow flex flex-col justify-between">
             <div>
-              <div className="font-bold text-xl mb-2 line-clamp-2">{member.name}</div>
-              <p className="text-gray-700 text-base line-clamp-2">{member.position}</p>
+              <div className="font-bold text-xl mb-2 line-clamp-2">
+                {member.name}
+              </div>
+              <p className="text-gray-700 text-base line-clamp-2">
+                {member.position}
+              </p>
             </div>
           </div>
         </div>
       ))}
     </div>
-  );
+  )
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -76,7 +165,7 @@ function Team() {
         {groupedMembers.slice(3).map(renderGroup)}
       </section>
     </div>
-  );
+  )
 }
 
-export default Team;
+export default Team

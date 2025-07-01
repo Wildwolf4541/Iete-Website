@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react'
-import event from '../assets/image.png'
+import event from '../assets/eventbg.jpg'
+import flagthon from '../assets/event/flag.jpg'
+import elementos from '../assets/event/elemEvent.png'
+import orientation from '../assets/event/orientEvent.jpg'
+
 import styles from '../css/event.module.css'
 
 import Heading from '../components/Header'
@@ -10,21 +14,24 @@ const events = [
     tagline: 'Get Started',
     title: 'ELEMENTOS',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, with homes and cities utilizing significant technology roles, streamlining tasks in various sectors from manufacturing to household chores, thus increasing productivity.',
+      'Elementos is the annual technical fest organized by the IETE Students Forum. Designed to inspire innovation and hands-on learning, the event features a unique blend of technical and non-technical activities. Highlights of the recently organized fest included  Dirt Rush, an adrenaline-filled buggy racing competition where participants from diverse fields and renowned institutes came together, and Robothon, which focused on creative ideation, rapid problem-solving and Circuitry, a multi-round robotics challenge where participants first bid for components in an auction round and then used them to build functional robots.Elementos continues to provide an exciting platform for enthusiasts to apply their technical knowledge, think innovatively, and collaborate in a dynamic and competitive environment, with a twist of fun and excitement.',
+    image: elementos,
   },
   {
     number: '02',
     tagline: 'Hiking Essentials',
     title: 'ORIENTATION',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, with homes and cities utilizing significant technology roles, streamlining tasks in various sectors from manufacturing to household chores, thus increasing productivity.',
+      'Orientation serves as the welcoming gateway for new members into the IETE Students’ Forum, held soon after society fair. It is designed to introduce member to the objectives, opportunities, and activities of the forum, while also fostering a sense of community and belonging.The session provides insights into upcoming events, departments, workshops, and competitions, and highlights how members can get involved, contribute, and grow technically and personally. Through interactive talks, demonstrations, and team-building activities, Orientation sets the tone for a collaborative and enriching journey ahead.',
+    image: orientation,
   },
   {
     number: '03',
     tagline: 'Where you go is the key',
     title: 'FLAGATHON',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, with homes and cities utilizing significant technology roles, streamlining tasks in various sectors from manufacturing to household chores, thus increasing productivity.',
+      'Flagathon was one of the standout events of the fest, organized under the banner of the IETE Students’ Forum. Designed to test participants’ logical thinking, debugging skills, and attention to detail, this fast-paced competition challenged contestants to identify and fix bugs in given code snippets within a limited time. The event was held among the society members and non-members which reflected the Forum’s aim to cultivate real-world problem-solving skills and encouraged participants to think critically under pressure, making it both intellectually stimulating and technically enriching.',
+    image: flagthon,
   },
 ]
 
@@ -51,17 +58,17 @@ function Event() {
       {/* Header Section  */}
       <section
         ref={headerRef}
-        className="lg:h-screen w-full flex justify-center items-center overflow-hidden h-[50vh]"
+        className="lg:h-screen w-full flex justify-center items-center overflow-hidden h-[50vh] relative"
         style={{ opacity: headerOpacity }}
       >
-        <div className="flex flex-col justify-center items-center relative">
-          <Heading text="EVENT" />
-        </div>
         <img
           src={event}
           alt="event"
-          className="w-full h-full object-cover absolute"
+          className="w-full h-full object-cover absolute inset-0 z-0"
         />
+        <div className="flex flex-col justify-center items-center absolute inset-0 z-10">
+          <Heading text="EVENT" />
+        </div>
       </section>
 
       {/* Events Section */}
@@ -73,6 +80,7 @@ function Event() {
             tagline={event.tagline}
             title={event.title}
             description={event.description}
+            imgsrc={event.image}
           />
         ))}
       </section>
@@ -104,14 +112,14 @@ const ContentSection = ({ tagline, title, content }) => {
       <h2 className="mt-7 text-[36px] text-white lg:text-[80px] md:text-[50px] font-alatsi">
         {title}
       </h2>
-      <p className="mt-7 text-[17px] text-white max-w-[100%] md:text-3xl max-md:max-w-full">
+      <p className="mt-7 text-[14px] text-white max-w-[100%] md:text-xl max-md:max-w-full">
         {content}
       </p>
     </div>
   )
 }
 
-const Elementos = ({ number, tagline, title, description }) => {
+const Elementos = ({ number, tagline, title, description, imgsrc }) => {
   const ref = useRef()
   const [isVisible, setIsVisible] = useState(false)
 
@@ -156,8 +164,7 @@ const Elementos = ({ number, tagline, title, description }) => {
         <aside className="flex flex-col ml-5 mr-10 w-[41%] max-md:ml-0 max-md:w-full">
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/100caee604b14d506ac2b55d245cf7d9550109bfcf02eeca4e3ce207e89308cf?placeholderIfAbsent=true&apiKey=1e94dac72461470eb67aa910a2fb5ecf"
-            alt="Elementos visual representation"
+            src={imgsrc}
             className="object-contain grow w-full aspect-[0.7] max-md:mt-10 max-md:max-w-full"
           />
         </aside>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Atom } from 'lucide-react'
 import styles from '../css/department.module.css'
 import Heading from '../components/Heading'
@@ -7,6 +7,7 @@ import e2 from '../assets/e2.jpeg'
 import e3 from '../assets/e3.jpeg'
 import e4 from '../assets/e4.jpeg'
 import e5 from '../assets/e5.jpeg'
+import elementos from '../assets/elementos.png'
 import landingBG1 from '../assets/landingBG1.png'
 
 const departments = [
@@ -58,10 +59,10 @@ const projects = [
   },
   {
     department: 'WEB DEVELOPMENT DEPARTMENT',
-    title: 'Abcd project circuit',
+    title: 'Elementos Website',
     description:
-      'An electronics-based society is one where technology profoundly influences daily life, transforming communication, work, and social interactions. In this society, constamce convenience, with homes and cities utilizing devices that can be controlled remotely. Automation plays a significant role, streamlining tasks in various sectors, from manufacturing to household chores, thus increasing productivity. The rise of e-commerce has changed traditional retail, making shopping more accessible than ever. Education has been',
-    image: 'Iete-Website/frontend/iete-website/src/assets/background.jpg',
+      'Web development is the backbone of the modern internet, enabling the creation of websites and web applications that power everything from social media to online shopping. It involves designing, building, and maintaining digital platforms using technologies like HTML, CSS, JavaScript, and various frameworks. Web development plays a crucial role in how we access information, connect with others, and interact with services in our daily lives.',
+    image: 'Iete-Website/frontend/iete-website/src/assets/elementos.jpeg',
   },
 ]
 
@@ -79,14 +80,27 @@ const DepartmentsSection = () => {
     )
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImage()
+    }, 4500)
+    return () => clearInterval(interval)
+    // eslint-disable-next-line
+  }, [])
+
   return (
-    <div className="w-screen bg-black text-white flex justify-center items-center flex-col">
-      <section className="w-screen min-h-screen bg-[url('${landingBG1}')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-4 relative ">
-        <div className="relative mb-10 flex justify-center items-center">
+    <div className="w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col items-center">
+      <section
+        className="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center px-2 sm:px-4 relative"
+        style={{
+          backgroundImage: `url(${landingBG1})`,
+        }}
+      >
+        <div className="relative mb-8 sm:mb-10 flex justify-center items-center w-full">
           <Heading text="DEPARTMENT" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 w-full max-w-7xl mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full max-w-7xl mb-10 sm:mb-16">
           {departments.map((dept, index) => {
             let gridPosition = ''
 
@@ -96,7 +110,7 @@ const DepartmentsSection = () => {
                 break
               case 1:
                 gridPosition =
-                  'lg:row-start-1 lg:col-start-2 lg:col-span-2 md:col-span-2'
+                  'lg:row-start-1 lg:col-start-2 lg:col-span-2 sm:col-span-2'
                 break
               case 2:
                 gridPosition = 'lg:row-start-2 lg:col-start-1'
@@ -114,14 +128,20 @@ const DepartmentsSection = () => {
             return (
               <div
                 key={dept.title}
-                className={`${gridPosition} ${dept.className} p-6 shadow-lg transform transition-transform hover:scale-105 relative overflow-hidden min-h-[200px] flex flex-col justify-between bg-glassyBg rounded-2xl shadow-glassy backdrop-blur-custom border border-glassyBorder`}
+                className={`${gridPosition} ${dept.className} p-4 sm:p-6 shadow-lg transform transition-transform hover:scale-105 relative overflow-hidden min-h-[180px] sm:min-h-[200px] flex flex-col justify-between bg-glassyBg rounded-2xl shadow-glassy backdrop-blur-custom border border-glassyBorder`}
               >
                 <div className={styles.glassy}>
-                  <h3 className="text-xl font-bold mb-3">{dept.title}</h3>
-                  <p className="text-sm text-white/80">{dept.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                    {dept.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/80">
+                    {dept.description}
+                  </p>
                 </div>
                 {dept.icon && (
-                  <div className="absolute bottom-4 right-4">{dept.icon}</div>
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
+                    {dept.icon}
+                  </div>
                 )}
               </div>
             )
@@ -129,72 +149,60 @@ const DepartmentsSection = () => {
         </div>
       </section>
 
-      <div className="relative mb-24 px-4 bg-black flex justify-center items-center">
+      <div className="relative mb-16 sm:mb-24 px-2 sm:px-4 bg-black flex justify-center items-center w-full">
         <Heading text="PROJECTS" />
       </div>
 
-      <div className="space-y-32 text-center px-4 mb-20 bg-black">
+      <div className="space-y-20 sm:space-y-32 text-center px-2 sm:px-4 mb-10 sm:mb-20 bg-black w-full">
         {projects.map((project, index) => (
-          <div key={index} className="space-y-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-purple-400 px-4 md:pl-14 py-12">
+          <div key={index} className="space-y-6 sm:space-y-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-400 px-2 sm:px-4 md:pl-14 py-8 sm:py-12">
               {project.department}
             </h3>
 
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-56 px-4 lg:pl-24">
-              {index % 2 === 0 ? (
-                <>
-                  <div className="relative w-80 h-64 md:w-96 md:h-80 lg:w-[500px] lg:h-[400px] bg-black flex-shrink-0">
-                    <img
-                      src={images[currentImageIndex]}
-                      alt={`Image ${currentImageIndex + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+            <div
+              className={`flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8 lg:gap-20 xl:gap-32 px-2 sm:px-4 lg:pl-16 xl:pl-24 ${
+                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+              }`}
+            >
+              <div className="relative w-full max-w-xs sm:max-w-md md:max-w-lg lg:w-[500px] lg:h-[400px] aspect-video bg-black flex-shrink-0">
+                <img
+                  src={index % 2 === 0 ? images[currentImageIndex] : elementos}
+                  alt={
+                    index % 2 === 0
+                      ? `Image ${currentImageIndex + 1}`
+                      : 'Elementos'
+                  }
+                  className="w-full h-full object-cover rounded-xl"
+                />
+                {index % 2 === 0 && (
+                  <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full z-10"
+                      aria-label="Previous Image"
                     >
                       ←
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full z-10"
+                      aria-label="Next Image"
                     >
                       →
                     </button>
-                  </div>
+                  </>
+                )}
+              </div>
 
-                  <div className="max-w-xl">
-                    <h4 className="text-3xl md:text-4xl font-bold mb-4">
-                      {project.title}
-                    </h4>
-                    <p className="text-base text-white/80 text-justify leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="max-w-xl order-2 lg:order-1">
-                    <h4 className="text-3xl md:text-4xl font-bold mb-4">
-                      {project.title}
-                    </h4>
-                    <p className="text-base text-white/80 text-justify leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="w-64 h-64 md:w-80 md:h-80 grid grid-cols-3 gap-2 bg-black flex-shrink-0 order-1 lg:order-2">
-                    {[...Array(9)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`w-full h-full ${
-                          i % 2 === 0 ? 'bg-gray-200' : ''
-                        }`}
-                      ></div>
-                    ))}
-                  </div>
-                </>
-              )}
+              <div className="w-full max-w-xl text-left sm:text-justify">
+                <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+                  {project.title}
+                </h4>
+                <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
             </div>
           </div>
         ))}
